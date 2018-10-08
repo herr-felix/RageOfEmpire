@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "esm",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "jsxFactory": "h"
+    },
+    "files": [
+      "./src/main.ts"
+    ]
+}
