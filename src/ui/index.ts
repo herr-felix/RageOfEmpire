@@ -13,6 +13,7 @@ export default class UI {
     this._onmessage_handler = event_callback
     this._model = new Model()
     this._view = new View(this.view_event.bind(this))
+    this._view.CreateContext()
     this._view.Render(this._model)
  }
 
@@ -45,8 +46,6 @@ export default class UI {
         break
     }
     
-    if (this._view) {
-      this._view.Render(this._model)
-    }
+    this._view.Render(this._model)
   }
 }

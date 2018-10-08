@@ -4,7 +4,7 @@ var stone = 0;
 
 function on_event (e: GameUIEvent, ui: UI) {
   console.log(e)
-  stone ++
+  stone += 25
   ui.Publish({kind:"ressource", ressource:"stone", value: stone})
 }
 

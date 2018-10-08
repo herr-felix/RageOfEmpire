@@ -70,10 +70,12 @@ export default class View {
     this.world_display.height = window.innerHeight - this.bare_height - this.dashboard_height
     this.world_display.width = window.innerWidth
 
+    return this.world_display
+  }
+
+  CreateContext() {
     const context = this.world_display.getContext('webgl', { antialias: false });
     this.push_event({kind: "world_ready", context: context }) 
-
-    return this.world_display
   }
 
   Render(model: Model) {
