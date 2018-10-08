@@ -1,13 +1,12 @@
 import UI from "./ui"
-var stone = 0;
+import Game from "./game"
 
 
 function on_event (e: GameUIEvent, ui: UI) {
-  console.log(e)
-  stone += 25
-  ui.Publish({kind:"ressource", ressource:"stone", value: stone})
 }
 
 const ui = new UI(on_event)
 
-window.ui = ui
+const game = new Game(ui)
+
+game.Start()
