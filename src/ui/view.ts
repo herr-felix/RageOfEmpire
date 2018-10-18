@@ -9,7 +9,9 @@ export default class View {
 
   private world_display: HTMLCanvasElement
 
-  private bare_height = 30
+  private dashboard: HTMLDivElement
+
+  private bare_height = 26
   private dashboard_height = 200
 
   private push_event: (e: GameUIEvent) => void
@@ -24,8 +26,10 @@ export default class View {
     const root = document.body 
     root.style.margin = "0"
     root.style.padding = "0"
+    root.style.fontSize = "12px"
     root.appendChild(this.initBare())
     root.appendChild(this.initCanvas())
+    root.appendChild(this.initDashboard())
   }
 
   private initEvents() {
@@ -73,6 +77,18 @@ export default class View {
     return this.world_display
   }
 
+  private initDashboard() {
+    this.dashboard = document.createElement("div")
+    this.dashboard.style.position = "absolute"
+    this.dashboard.style.bottom = "0"
+    this.dashboard.style.left = "0"
+    this.dashboard.style.right = "0"
+    this.dashboard.style.backgroundColor = "#663300"
+    this.dashboard.style.height = this.dashboard_height + "px"
+
+    return this.dashboard
+  }
+
   CreateContext() {
     const context = this.world_display.getContext('webgl', { antialias: false });
     this.push_event({kind: "world_ready", context: context }) 
@@ -98,13 +114,14 @@ class RessourceBox {
     box.style.width = "120px"
     box.style.textAlign = "right"
     box.style.backgroundColor = "black"
-    box.style.marginLeft = "3px"
+    box.style.marginLeft = "5px"
 
     this._text = document.createElement("span")
 
     const label = document.createElement("span")
     label.style.textAlign = "right"
     label.style.cssFloat = "left"
+    label.style.marginLeft = "3px"
     label.textContent = txt
     
     box.appendChild(label)

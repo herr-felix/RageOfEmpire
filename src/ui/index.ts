@@ -39,6 +39,10 @@ export default class UI {
     
   }
 
+  On(callback: (e: GameUIEvent, ui: UI) => void) {
+    this._onmessage_handler = callback
+  }
+
   Publish(e: GameStateEvent) {
     switch(e.kind) {
       case "ressource":

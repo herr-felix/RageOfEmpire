@@ -1,23 +1,23 @@
 import UI from "../ui"
+import Scene from "../scene"
 
 export default class Game {
   private ui: UI
+  private scene: Scene
 
-  private stone: number = 0
- 
-  constructor(ui: UI) {
-    this.ui = ui
+  constructor() {
+
+  }
+
+  private on_ui_events (event: GameUIEvent, ui: UI) {
+     
   }
 
   Start() {
+    this.ui = new UI(this.on_ui_events)
+    this.scene = new Scene()
+
     console.log('Start')
-
-    setInterval(() => {
-      console.log('tick')
-      this.stone += 5
-      this.ui.Publish({kind:"ressource", ressource:"stone", value: this.stone})
-    }, 750)
-
   }
 
 }
