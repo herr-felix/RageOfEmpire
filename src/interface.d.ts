@@ -7,7 +7,7 @@ interface GameUIEvent_WorldClick {
 
 interface GameUIEvent_WorldReady {
   kind: "world_ready",
-  context: WebGLRenderingContext
+  canvas: HTMLCanvasElement
 }
 
 interface GameUIEvent_Action {

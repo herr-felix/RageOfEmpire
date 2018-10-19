@@ -6,16 +6,20 @@ export default class Game {
   private scene: Scene
 
   constructor() {
-
+    this.scene = new Scene()
   }
 
   private on_ui_events (event: GameUIEvent, ui: UI) {
-     
+    console.log(event)
+    switch(event.kind) {
+      case "world_ready":
+        this.scene.InitCanvas(event.canvas)
+        break
+    }
   }
 
   Start() {
-    this.ui = new UI(this.on_ui_events)
-    this.scene = new Scene()
+    this.ui = new UI(this.on_ui_events.bind(this))
 
     console.log('Start')
   }

@@ -90,8 +90,7 @@ export default class View {
   }
 
   CreateContext() {
-    const context = this.world_display.getContext('webgl', { antialias: false });
-    this.push_event({kind: "world_ready", context: context }) 
+    this.push_event({kind: "world_ready", canvas: this.world_display }) 
   }
 
   Render(model: Model) {
